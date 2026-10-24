@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Potato Downloader: baixe sua midia com uma interface ASCII e uma instancia propria do Cobalt.">
+  <meta name="theme-color" content="#10120f"><title>Potato Downloader / save</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"><script src="/app.js" type="module"></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><a class="brand" href="#save"><span class="brand-icon">[p]</span> potato<span class="dim">.downloader</span></a><span class="version">ASCII EDITION <span>v1.0.0</span></span></header>
+    <div class="workspace">
+      <aside class="sidebar">
+        <div><span class="caption">~/POTATO</span><nav aria-label="Principal"><a href="#save" data-page="save" aria-current="page"><span>[01]</span> baixar <b>&gt;</b></a><a href="#settings" data-page="settings"><span>[02]</span> ajustes <b>&gt;</b></a><a href="#about" data-page="about"><span>[03]</span> sobre <b>&gt;</b></a></nav></div>
+        <div class="side-bottom"><pre aria-hidden="true">  .---.
+ / o . \
+| .  o |
+ \____/</pre><p>small potato.<br>big downloads.</p><a href="https://github.com/Harleyzinn/PotatoDumper" target="_blank" rel="noreferrer" id="repo-link">[&gt;] codigo-fonte</a></div>
+      </aside>
+      <main id="main">
+        <div class="page-top"><span id="breadcrumb">potato / baixar</span><button class="connection" id="connection" title="Verificar conexao com o Cobalt"><span id="connection-dot">[?]</span> <span id="connection-label">verificando API</span></button></div>
+        <section id="save" class="page">
+          <div class="hero"><div class="eyebrow">SEM ANUNCIOS. SEM COMPLICACAO. SO MIDIA.</div>
+            <div class="hero-art"><pre class="potato" aria-label="Uma batata desenhada em ASCII">       .-----------.
+    .-'   .     o   '-.
+   /   o       .      \
+  |    .    o      .   |
+  |  o    .    o      |
+   \      .       o  /
+    '._    o    __.-'
+       '-------'</pre><div class="wordmark"><h1>POTATO<span>DOWNLOADER<span class="cursor" aria-hidden="true">_</span></span></h1><p>da internet pro seu disco.</p></div></div>
+            <p class="intro">Um link. Alguns caracteres. Seu arquivo.</p>
+          </div>
+          <section class="download-panel" aria-labelledby="panel-title"><div class="panel-heading"><h2 id="panel-title">+ NOVO DOWNLOAD</h2><span>cole &gt; escolha &gt; baixe</span></div>
+            <form id="download-form"><label for="media-url" class="caption">01 / LINK DA MIDIA</label><div class="url-row"><span aria-hidden="true" class="prompt">&gt;_</span><input id="media-url" name="url" type="url" required placeholder="https://cole-seu-link.aqui" autocomplete="off" spellcheck="false" aria-describedby="url-hint"><button type="button" class="paste" id="paste">[ colar ]</button></div><p id="url-hint" class="hint">Cole o link publico do video, audio ou post.</p>
+            <div class="mode-heading"><span class="caption">02 / O QUE VAMOS SALVAR?</span><span class="hint">escolha um modo</span></div><fieldset class="modes"><legend class="sr-only">Modo de download</legend><label><input type="radio" name="mode" value="auto" checked><span class="mode-radio"></span><span>video + audio<small>o pacote completo</small></span><span class="mode-symbol">[v+a]</span></label><label><input type="radio" name="mode" value="audio"><span class="mode-radio"></span><span>so audio<small>para os seus ouvidos</small></span><span class="mode-symbol">[a]</span></label><label><input type="radio" name="mode" value="mute"><span class="mode-radio"></span><span>video mudo<small>o silencio e de ouro</small></span><span class="mode-symbol">[v]</span></label></fieldset>
+            <div class="download-bottom"><label class="inline-quality">qualidade <select id="quick-quality" aria-label="Qualidade do video"><option value="max">maxima</option><option value="2160">2160p / 4K</option><option value="1440">1440p</option><option value="1080" selected>1080p</option><option value="720">720p</option><option value="480">480p</option><option value="360">360p</option></select></label><button class="primary" id="download-button" type="submit">[ BAIXAR ARQUIVO ] <span aria-hidden="true">-&gt;</span></button></div></form>
+          </section>
+          <section class="terminal" aria-labelledby="terminal-heading"><div class="terminal-title"><h2 id="terminal-heading">~/potato/console</h2><span id="terminal-state">IDLE</span></div><div class="terminal-content" id="status" role="status" aria-live="polite"><p><span class="log-time">[sistema]</span> Potato iniciado. Aguardando seu link<span class="cursor" aria-hidden="true">_</span></p><p class="dim">&gt; seus links nao ficam salvos neste navegador.</p></div><div id="results" class="results" hidden></div><button id="cancel" class="text-button" hidden>[ cancelar pedido ]</button></section>
+          <div class="services"><div class="caption">PLATAFORMAS DA SUA INSTANCIA <span id="services-count"></span></div><p id="services-list">Conecte uma API Cobalt para consultar as plataformas disponiveis.</p><span class="hint">A disponibilidade varia conforme a plataforma e a instancia.</span></div>
+        </section>
+        <section id="settings" class="page secondary-page" hidden><span class="eyebrow">[02] / PREFERENCIAS</span><h1>Do seu jeito<span class="accent">_</span></h1><p class="intro">Pequenos ajustes. Uma batata mais sua.</p><form id="settings-form" class="settings-panel"><label for="audio-format">Formato de audio</label><select id="audio-format"><option value="mp3">mp3</option><option value="best">melhor disponivel</option><option value="ogg">ogg</option><option value="wav">wav</option><option value="opus">opus</option></select><label class="checkbox-row"><input id="metadata" type="checkbox"> Remover metadados do arquivo</label><label class="checkbox-row"><input id="reduce-motion" type="checkbox"> Desativar animacoes do terminal</label><button type="submit" class="primary">[ SALVAR AJUSTES ]</button><p id="settings-message" role="status" class="hint">As preferencias ficam apenas neste navegador.</p></form><article class="info-box"><h2>+ CONECTANDO O MOTOR</h2><p>O Potato usa sua propria instancia Cobalt. No servidor, configure <code>COBALT_API_URL</code> e, se necessario, <code>COBALT_API_KEY</code>.</p><p>Para iniciar tudo localmente:</p><pre>docker compose up -d --build</pre><p class="hint">A interface abre em localhost:3000 e a API em localhost:9000. A chave nunca e enviada ao navegador.</p></article></section>
+        <section id="about" class="page secondary-page" hidden><span class="eyebrow">[03] / README.TXT</span><h1>Feito de caracteres.<br>Movido a batata<span class="accent">.</span></h1><p class="intro">Um downloader pessoal inspirado na simplicidade do Cobalt, com uma identidade 100% ASCII.</p><div class="about-grid"><article class="info-box"><h2>[01] / DIRETO AO PONTO</h2><p>Cole um link publico, escolha video ou audio e gere o arquivo. Posts com varias midias aparecem como uma lista para voce escolher.</p></article><article class="info-box"><h2>[02] / PRIVACIDADE</h2><p>Sem analytics, fontes externas ou historico persistente. O link e enviado ao servidor Potato e a instancia Cobalt configurada para processar a midia.</p></article><article class="info-box"><h2>[03] / SEU MOTOR</h2><p>Interface independente, backend Cobalt auto-hospedado. O Potato nao depende da API publica do cobalt.tools.</p></article><article class="info-box"><h2>[04] / BOM SENSO</h2><p>Baixe conteudo que voce criou ou tem permissao para salvar. Conteudo privado, DRM e restricoes das plataformas podem impedir o download.</p></article></div><a class="text-button" href="https://github.com/imputnet/cobalt" target="_blank" rel="noreferrer">[ visitar o projeto Cobalt -&gt; ]</a></section>
+        <footer><span>feito com &lt;3 e carboidratos</span><span>no ads / no tracking / just potato</span></footer>
+      </main>
+    </div><div class="statusbar"><span><span class="accent">[*]</span> potato downloader</span><span>UTF-8 <span class="dim">|</span> ASCII UI <span class="dim">|</span> <span id="clock">--:--:--</span></span></div>
+  </div>
+</body></html>

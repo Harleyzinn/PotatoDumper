@@ -1,0 +1,18 @@
+services:
+  potato:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      COBALT_API_URL: http://cobalt:9000/
+    restart: unless-stopped
+    depends_on:
+      - cobalt
+  cobalt:
+    image: ghcr.io/imputnet/cobalt:10
+    init: true
+    ports:
+      - "127.0.0.1:9000:9000"
+    environment:
+      API_URL: http://localhost:9000/
+    restart: unless-stopped

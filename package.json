@@ -1,0 +1,9 @@
+{
+  "name": "potato-downloader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An ASCII media downloader with a self-hosted cobalt backend.",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node --env-file-if-exists=.env server.mjs", "dev": "node --watch --env-file-if-exists=.env server.mjs", "test": "node --test", "check": "node --check server.mjs && node --check public/app.js" }
+}
